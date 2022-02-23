@@ -11,3 +11,8 @@ body{
     border: 1px solid pink;
     margin: 0 auto;
 }
+#cabecera{
+    background-color: darkcyan;
+    color: bisque;
+    margin: 0%;
+}
