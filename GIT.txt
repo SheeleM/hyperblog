@@ -1,0 +1,230 @@
+$ git init-> para inicializar el repositorio git y el staged
+
+$git add nombre_Del_Archivo.txt enviar el archivo al staged(agrega el archivo 
+al repo)
+
+para ver los cambios que he hecho 
+$ git status
+
+ver las posibles configuraciones
+$ git conf:
+
+para ver lista de configuraciones hechaas
+$ git conf -list
+
+ver las configuraciones y sus rutas
+git conf -list -show-origin
+
+$ git commit -m "version 1" envia los  ultimos cambios del archivo a la bd
+del sistema de control de versiones
+
+agregar todos los archivos que han cambiado en la carpeta donde estoy en ese
+momento
+$ git add .
+
+volver a guardar los cambios
+$ git commit -m "cambios a v1"
+
+
+ver todos los cambios historicos hechos, incluyendo las lineas de codigo
+las lineas de texto olas lineas de cualquier archivo que halla añadido que
+hayan cambiado cuando se han hechos esos cambios y quien los hizo
+$ git show
+
+*para ver la historia entera de un archivo
+$ git log biografia.txt
+
+$ ls
+muestra los archivos y carpetas donde estoy en ese momento
+
+$ cd 
+muestra la carpeta donde estoy
+
+$cd /
+esto por si quiero ir al disco
+NOTAA: si estoy en mis documentos aparece bilbulilla
+si estoy en el disco aparece eslas 
+
+
+mostrar todos los archivos inclusive los ocultos
+$ ls -al
+
+limpiar consola
+$ clear
+
+crear una carpeta
+$ mkdir nombreCarpeta
+
+para navegar a esa carpeta
+$ cd nombreCarpeta/
+
+crear un archivo vacio
+$ touch nombreArchivo.txt
+
+mostrar el contenido de un archivo
+$ cat nombreArchivo.txt
+
+ver el historial de comandos que he utilizado
+$ history
+
+si quiero envocar un comando de ese listado
+$ !numeroDelcomando
+
+borrr un archivo
+$ rm nombreArchivo.txt
+
+merge:
+fusionar cambios
+
+$ pwd
+para ve en que ruta estou
+
+$ git rm --cached nombreArchivo.txt
+esto significa que el archivo esta en memoria RAM
+esto es como quitarle el add al archivo
+
+si hago este y quiero agregarlo otravez solo lo agrego nuevamente
+
+*configurar GIT
+$ git config --global user.name "sulay m"
+$ git config --global user.name "sulay.martinez@udea.edu.co
+
+*para ver la configuracion que tengo
+$ git config --list
+
+*para abrir el archivo en visual
+$ code nombreArchivo.txt 
+
+*(HEAD  es la version mas reciente
+
+*tenemos el archivo modificado pero no sabemos que se modifico por dentro
+este commando me mustra los cambios que han existido sobre un archivo
+$ git show nombreArchivo.txt
+
+*para ver las diferencias entre un cambio y otro cambio del archivo
+$ git diff numeroversion Numerversionadistinta
+
+*salir del git log
+* + q
+
+*volver a una verison anterior del commit
+$ git reset #versionanterioralaquequierovolver -hard
+con el hard todo vuelve a la version aterior
+ENMCAMBIO
+$ git reset #versionanterioralaquequierovolver --soft
+volvemos a la version anterior pero lo que tengamos en staging sigue hay
+
+*ver las diferencias que hay
+$ git diff
+
+$ git log --stat
+podemos ver los cambios especificos que se hicieron
+
+*ver la primer a version de un archivo o cualquier version 
+$ git checkout #de_commit
+
+*ver la que esta en master
+$ git checkout master archivo1.txt
+
+IMPORTANTE
+en una carpeta cuando hago git init lo que pasa es que se crea un staging
+(funciona en memoria ram) y un repositorio
+
+git add manda al archivo a staging
+git commit -m manda al archivo al repositorio
+
+UNTRACKED (el archivo esta sin rastrear) osea no se ha hecho git add
+cuando le doy git add el archivo pasa a estado tracked
+
+* git reset --hard numerocomit
+Borra por completo todos los commit y deja la version a la que anotamos
+esto lo hago cuando estoy segura de querer eliminar el commit
+
+*git rm --cached nombreArchivo 
+mueve los archivos que le indiquemos al estado untraked
+
+*git rm --force 
+elimina los archivos de GIT y del disco duro. Git guarda el registro
+de la existencia de los archovos por lo que se pueden recuperar(pero es
+complejo)
+
+*git reset numeroCommit --hard
+nos permite volver auna verison anterior y borra el historial de  commits
+de hay para atras(perdemos todo para siempre)
+
+*git reset numerocCommit --soft 
+nos permite volver a la version que queranos pero lo qque este en 
+stagin sigue hay
+
+*ver un archivo en su primer commit
+$ git checkout numeroCommit nombreArrchivo.txt
+ 
+FLUJO BASICO EN GIT
+*git clone url_del_servidor_remoto
+nos permite descargar los archovos de la ultima version de la rama principal y
+todo el historial de cambios
+
+*git push
+luego de hacer git add y git commit debemos ejecutar
+este comando para mandar los cambios al servidor remoto
+
+*git fetch
+trae actualizaciones del servidor remoto y las guarda
+en nuestro repo local
+
+*git merge 
+lo hacemos despues de hacer git fetch. lo hacemos
+para combinar los ultimos cambios del servidor remoto
+y nuesto directorio de trabajo
+
+*git pull: hace lo mismo que hacemos cuando hacemos
+el git fecht y luego git merge
+
+NOTA:
+si un archivo ya le he hecho git add, para seguir guardando sus cambios 
+basta con solo hacer commit
+
+$ git branch nombre_Rama
+crea una rama
+
+$ git checkout nombre_rama
+me mueve a otra rama
+
+NOTA: git checkout me permite viajar entre commits y cambiarme de una rama a otra
+
+->>> FUSIÓN DE RAMAS CON GIT MERGE
+$ git commit -am "mensaje_Del_commit"
+agregar los cambios a una rama diferente al master
+
+$ git brach
+es para ver las ramas que tengo creadas
+
+NOTA: para hacer git merge a una rama lo que hago es: primero me posiciono en la
+rama donde quiero traer los cambios, luego hago git merge + nombreRama de la que quiero
+traer los cambios
+ 
+$git merge Nombre_rama_dela_cual_quierotraer_Cambios
+fusiona los cambios de una rama con otra
+
+NOTA: si en mi rama hago un cambio y necesito pasarme a otra, para que no se pierda
+lo que hice debo hacer un commit en mi rama antes de pasarme a la otra
+
+->>>RESOLUCIÓN DE CONFLICTOS AL HACER UN MERGE
+NOTA:
+si dos personas hacen cambios en la misma linea de codigo habran conflictos
+a la hora de hacer el merge
+
+*git branch -d 
+borra una rama
+
+NOTAS
+despues de cada merge debo aplicar un commit 
+
+los archivos que entran en conflicto por el comando git merge
+entran a un estado que se llama Unmerged
+cuando esto pasa solo debemos hacer git add para pasarlos 
+al staging y luego git commit para aplicar los cambios al repo
+
+
+
+

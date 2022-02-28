@@ -1,6 +1,6 @@
 
 body{
-    color: rgb(132, 230, 20);
+    color: rgb(5, 5, 5);
     text-align: center;
     font-family: cursive;
 }
@@ -13,6 +13,9 @@ body{
 }
 #cabecera{
     background-color: darkcyan;
-    color: bisque;
+    color: rgb(46, 197, 32);
     margin: 0%;
+}
+footer{
+    color: rgb(201, 190, 39);
 }
